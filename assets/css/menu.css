@@ -113,6 +113,14 @@
   right: 0;
 }
 
+/* detect desktop clients */
+@media (min-width: 684px) {
+  .x_details_menu {
+    display: none;
+  }
+}
+
+/* detect mobile clients */
 @media (max-width: 684px) {
   .navigation-menu {
     margin: 0;
@@ -145,4 +153,49 @@
   .menu--language-selector .menu__trigger {
     display: none;
   }
+
+  .x_details_menu {
+    display: flex;
+  }
+}
+
+/*manually ported styling for details/summary mobile menu
+want:
+- theme-matching summary that fits with header
+- theme-matching menu box that opens below header
+- no bullet points for list
+- details menu only visible on mobile clients
+- expected tree: nav -> details -> [summary, ul -> li]
+*/
+.x_details_menu {
+  flex-direction: column;
+  color: var(--accent);
+  border: 2px solid;
+  margin-left: 10px;
+  height: 100%;
+  padding: 3px 8px;
+  margin-bottom: 0 !important;
+  cursor: pointer;
+}
+
+.x_details_menu > ul {
+  position: absolute;
+  right: 0px;
+  top: 100%;
+  background: var(--background);
+  box-shadow: 0 10px var(--background), -10px 10px var(--background), 10px 10px var(--background);
+  border: 2px solid var(--accent);
+  margin: 0;
+  padding: 10px;
+  list-style: none;
+  width: auto;
+  z-index: 99;
+}
+
+.x_details_menu > ul li {
+    flex: 0 0 auto;
+}
+
+.x_details_menu > ul li:not(:last-of-type) {
+  margin-bottom: 10px;
 }

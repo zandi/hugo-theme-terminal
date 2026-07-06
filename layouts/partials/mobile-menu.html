@@ -1,7 +1,7 @@
-<ul class="menu menu--mobile">
-  <li class="menu__trigger">Menu&nbsp;▾</li>
-  <li>
-    <ul class="menu__dropdown">
+<nav>
+<details class="x_details_menu">
+  <summary>Menu</summary>
+<ul>
       {{ range $.Site.Menus.main }}
         {{ if not .HasChildren }}
           <li><a href="{{ .URL }}">{{ .Name }}</a></li>
@@ -15,6 +15,6 @@
           </li>
         {{ end }}
       {{ end }}
-    </ul>
-  </li>
 </ul>
+</details>
+</nav>
